@@ -212,57 +212,134 @@ export default function Index() {
 
       {activeSection === "home" && (
         <>
-          <section className="relative py-24 px-4 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-secondary/10" />
+          <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
+            <div className="absolute inset-0">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent via-background to-secondary/20" />
+              <div className="absolute top-20 right-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+              <div className="absolute bottom-20 left-20 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+            </div>
+            
             <div className="container mx-auto relative z-10">
-              <div className="max-w-3xl mx-auto text-center space-y-6">
-                <h2 className="text-5xl md:text-6xl font-bold text-foreground leading-tight">
-                  Мир рукоделия и экологичной жизни
-                </h2>
-                <p className="text-lg md:text-xl text-muted-foreground">
-                  Вдохновляйтесь работами мастеров, создавайте своими руками и живите в гармонии с природой
-                </p>
-                <div className="flex gap-4 justify-center pt-4">
-                  <Button
-                    size="lg"
-                    onClick={() => setActiveSection("gallery")}
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                  >
-                    <Icon name="Eye" size={20} className="mr-2" />
-                    Смотреть работы
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    onClick={() => setActiveSection("masters")}
-                    className="border-primary text-primary hover:bg-primary/10"
-                  >
-                    <Icon name="Users" size={20} className="mr-2" />
-                    Наши мастера
-                  </Button>
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="space-y-8 animate-fade-in">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/50 rounded-full">
+                    <Icon name="Sparkles" size={16} className="text-primary" />
+                    <span className="text-sm font-medium text-foreground">Творчество • Природа • Гармония</span>
+                  </div>
+                  
+                  <h2 className="text-5xl md:text-7xl font-bold text-foreground leading-[1.1]">
+                    Мир рукоделия
+                    <span className="block text-primary mt-2">и экологичной жизни</span>
+                  </h2>
+                  
+                  <p className="text-xl text-muted-foreground max-w-xl leading-relaxed">
+                    Вдохновляйтесь работами талантливых мастеров, создавайте уникальные вещи своими руками и живите в гармонии с природой
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-4 pt-4">
+                    <Button
+                      size="lg"
+                      onClick={() => setActiveSection("gallery")}
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                    >
+                      <Icon name="Eye" size={20} className="mr-2" />
+                      Смотреть работы
+                    </Button>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      onClick={() => setActiveSection("masters")}
+                      className="border-2 border-primary text-primary hover:bg-primary/10 hover:scale-105 transition-all"
+                    >
+                      <Icon name="Users" size={20} className="mr-2" />
+                      Наши мастера
+                    </Button>
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border/50">
+                    <div className="space-y-1">
+                      <div className="text-3xl font-bold text-primary">250+</div>
+                      <div className="text-sm text-muted-foreground">Работ мастеров</div>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-3xl font-bold text-primary">50+</div>
+                      <div className="text-sm text-muted-foreground">Талантливых мастеров</div>
+                    </div>
+                    <div className="space-y-1">
+                      <div className="text-3xl font-bold text-primary">100+</div>
+                      <div className="text-sm text-muted-foreground">Полезных статей</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative lg:block hidden">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+                      <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+                        <img
+                          src="https://cdn.poehali.dev/projects/3d399d97-fa3c-4cee-a287-690e3e6b045a/files/ae9cd7a9-315d-466f-ac69-5c7fd1a8d86f.jpg"
+                          alt="Керамика"
+                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                        />
+                      </div>
+                      <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+                        <img
+                          src="https://cdn.poehali.dev/projects/3d399d97-fa3c-4cee-a287-690e3e6b045a/files/15f9c105-c8f1-4d4e-9580-15ac33b935ae.jpg"
+                          alt="Текстиль"
+                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                        />
+                      </div>
+                    </div>
+                    <div className="space-y-4 pt-8 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+                      <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+                        <img
+                          src="https://cdn.poehali.dev/projects/3d399d97-fa3c-4cee-a287-690e3e6b045a/files/aaddcd6e-b53a-4dc7-81ac-5b2ad1b92dc5.jpg"
+                          alt="Дерево"
+                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                        />
+                      </div>
+                      <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+                        <img
+                          src="https://cdn.poehali.dev/projects/3d399d97-fa3c-4cee-a287-690e3e6b045a/files/ae9cd7a9-315d-466f-ac69-5c7fd1a8d86f.jpg"
+                          alt="Ремесла"
+                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute -top-8 -left-8 w-24 h-24 bg-secondary/20 rounded-full blur-2xl" />
+                  <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
                 </div>
               </div>
             </div>
           </section>
 
-          <section className="py-16 px-4 bg-card">
+          <section className="py-24 px-4 bg-card/50 backdrop-blur-sm">
             <div className="container mx-auto">
-              <h3 className="text-3xl font-bold text-center mb-12">Виды ремесел</h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                {categories.slice(1).map((category) => (
+              <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <h3 className="text-4xl md:text-5xl font-bold">Виды ремесел</h3>
+                <p className="text-muted-foreground text-lg">
+                  Откройте для себя разнообразие традиционных и современных техник
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
+                {categories.slice(1).map((category, index) => (
                   <Card
                     key={category.id}
-                    className="hover:shadow-lg transition-all cursor-pointer hover:scale-105 border-border bg-card"
+                    className="group hover:shadow-2xl transition-all duration-300 cursor-pointer hover:-translate-y-2 border-border bg-card animate-fade-in"
+                    style={{ animationDelay: `${index * 0.1}s` }}
                     onClick={() => {
                       setSelectedCategory(category.id);
                       setActiveSection("gallery");
                     }}
                   >
-                    <CardContent className="p-6 text-center space-y-3">
-                      <div className="w-12 h-12 mx-auto rounded-full bg-accent flex items-center justify-center">
-                        <Icon name={category.icon} size={24} className="text-primary" />
+                    <CardContent className="p-8 text-center space-y-4">
+                      <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-accent to-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Icon name={category.icon} size={28} className="text-primary" />
                       </div>
-                      <p className="font-medium text-sm">{category.name}</p>
+                      <p className="font-semibold text-base">{category.name}</p>
                     </CardContent>
                   </Card>
                 ))}
@@ -270,42 +347,95 @@ export default function Index() {
             </div>
           </section>
 
-          <section className="py-16 px-4">
+          <section className="py-24 px-4">
             <div className="container mx-auto">
-              <div className="flex justify-between items-center mb-12">
-                <h3 className="text-3xl font-bold">Последние статьи</h3>
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-16">
+                <div className="space-y-2">
+                  <h3 className="text-4xl md:text-5xl font-bold">Последние статьи</h3>
+                  <p className="text-muted-foreground text-lg">Полезные знания от опытных мастеров</p>
+                </div>
                 <Button
-                  variant="ghost"
+                  variant="outline"
+                  size="lg"
                   onClick={() => setActiveSection("articles")}
-                  className="text-primary hover:text-primary/80"
+                  className="border-primary text-primary hover:bg-primary/10 group"
                 >
                   Все статьи
-                  <Icon name="ArrowRight" size={18} className="ml-2" />
+                  <Icon name="ArrowRight" size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
-              <div className="grid md:grid-cols-3 gap-8">
-                {articles.map((article) => (
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {articles.map((article, index) => (
                   <Card
                     key={article.id}
-                    className="overflow-hidden hover:shadow-lg transition-all cursor-pointer group border-border"
+                    className="overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer group border-border animate-fade-in hover:-translate-y-1"
+                    style={{ animationDelay: `${index * 0.15}s` }}
                   >
-                    <div className="aspect-video overflow-hidden">
+                    <div className="aspect-[16/10] overflow-hidden relative">
                       <img
                         src={article.image}
                         alt={article.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
-                    <CardContent className="p-6 space-y-3">
+                    <CardContent className="p-6 space-y-4">
                       <div className="flex items-center gap-2 text-xs text-muted-foreground">
                         <Icon name="Calendar" size={14} />
                         <span>{article.date}</span>
                       </div>
-                      <h4 className="text-xl font-semibold line-clamp-2">{article.title}</h4>
-                      <p className="text-muted-foreground text-sm line-clamp-2">{article.excerpt}</p>
+                      <h4 className="text-xl font-bold line-clamp-2 group-hover:text-primary transition-colors">
+                        {article.title}
+                      </h4>
+                      <p className="text-muted-foreground text-sm line-clamp-2 leading-relaxed">
+                        {article.excerpt}
+                      </p>
+                      <div className="flex items-center text-primary font-medium text-sm group-hover:gap-2 transition-all">
+                        Читать далее
+                        <Icon name="ArrowRight" size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="py-24 px-4 bg-gradient-to-br from-primary/5 via-accent/10 to-secondary/5">
+            <div className="container mx-auto">
+              <div className="max-w-4xl mx-auto text-center space-y-8">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-full shadow-lg">
+                  <Icon name="Leaf" size={16} className="text-primary" />
+                  <span className="text-sm font-medium">Присоединяйтесь к сообществу</span>
+                </div>
+                
+                <h3 className="text-4xl md:text-5xl font-bold leading-tight">
+                  Станьте частью нашего мира <span className="text-primary">творчества</span>
+                </h3>
+                
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Делитесь своими работами, находите вдохновение и общайтесь с единомышленниками
+                </p>
+                
+                <div className="flex flex-wrap gap-4 justify-center pt-4">
+                  <Button
+                    size="lg"
+                    onClick={() => setActiveSection("masters")}
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                  >
+                    <Icon name="UserPlus" size={20} className="mr-2" />
+                    Стать мастером
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-primary text-primary hover:bg-primary/10"
+                  >
+                    <Icon name="Mail" size={20} className="mr-2" />
+                    Связаться с нами
+                  </Button>
+                </div>
               </div>
             </div>
           </section>
